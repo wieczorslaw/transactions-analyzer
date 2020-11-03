@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
         if (args == null || args.length != 4) {
             System.out.println("Application requires 4 parameters: [CSV file path] [merchant name] [start date (dd/MM/yyyy HH:mm:ss)] [end date (dd/MM/yyyy HH:mm:ss)]");
-            System.out.println("For example: java -jar /somefile.csv \"20/08/2018 12:00:00\" \"20/08/2018 13:00:00\" Kwik-E-Mart");
+            System.out.println("For example: java -jar tanalyzer.jar data.csv \"20/08/2018 12:00:00\" \"20/08/2018 13:00:00\" Kwik-E-Mart");
             System.exit(1);
         }
 
