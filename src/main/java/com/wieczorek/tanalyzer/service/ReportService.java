@@ -7,10 +7,11 @@ import java.io.File;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.HashSet;
+import java.util.Set;
 
 public class ReportService {
     public static Report analyze(File file, String fromDate, String toDate, String merchant) {
-        HashSet<Transaction> transactions = TransactionsReadService.getTransactionsForMerchantWithRange(file, DateUtil.toDate(fromDate), DateUtil.toDate(toDate), merchant);
+        Set<Transaction> transactions = TransactionsReadService.getTransactionsForMerchantWithRange(file, DateUtil.toDate(fromDate), DateUtil.toDate(toDate), merchant);
         System.out.println("Number of transactions = " + transactions.size());
         BigDecimal sum = transactions.stream().map(Transaction::getAmount).reduce(BigDecimal.ZERO, BigDecimal::add);
         BigDecimal average = sum.divide(new BigDecimal(transactions.size()), RoundingMode.UNNECESSARY);
